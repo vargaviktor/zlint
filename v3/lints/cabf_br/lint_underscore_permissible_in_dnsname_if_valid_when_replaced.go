@@ -17,7 +17,6 @@ package cabf_br
 import (
 	"fmt"
 	"strings"
-	"time"
 
 	"github.com/zmap/zcrypto/x509"
 	"github.com/zmap/zlint/v3/lint"
@@ -28,10 +27,10 @@ func init() {
 	lint.RegisterLint(&lint.Lint{
 		Name:            "e_underscore_permissible_in_dnsname_if_valid_when_replaced",
 		Description:     "From December 10th 2018 to April 1st 2019 DNSNames may contain underscores if-and-only-if every label withing each DNS name is a valid LDH label after replacing all underscores with hyphens",
-		Citation:        "Prior to April 1 2019, certificates containing underscore characters (“_”) in domain labels in dNSName entries MAY be issued as follows...dNSName entries MAY include underscore characters such that replacing all underscore characters with hyphen characters (“-“) would result in a valid domain label.",
+		Citation:        "BR 7.1.4.2.1",
 		Source:          lint.CABFBaselineRequirements,
 		EffectiveDate:   util.CABFBRs_1_6_2_Date,
-		IneffectiveDate: time.Date(2019, time.April, 1, 0, 0, 0, 0, time.UTC),
+		IneffectiveDate: util.BALLOT_SC_12_Effective,
 		Lint:            func() lint.LintInterface { return &UnderscorePermissibleInDNSNameIfValidWhenReplaced{} },
 	})
 }
