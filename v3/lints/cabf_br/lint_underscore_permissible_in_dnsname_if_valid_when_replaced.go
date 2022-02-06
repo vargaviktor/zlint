@@ -26,7 +26,7 @@ import (
 func init() {
 	lint.RegisterLint(&lint.Lint{
 		Name:            "e_underscore_permissible_in_dnsname_if_valid_when_replaced",
-		Description:     "From December 10th 2018 to April 1st 2019 DNSNames may contain underscores if-and-only-if every label withing each DNS name is a valid LDH label after replacing all underscores with hyphens",
+		Description:     "From December 10th 2018 to April 1st 2019 DNSNames may contain underscores if-and-only-if every label within each DNS name is a valid LDH label after replacing all underscores with hyphens",
 		Citation:        "BR 7.1.4.2.1",
 		Source:          lint.CABFBaselineRequirements,
 		EffectiveDate:   util.CABFBRs_1_6_2_Date,
