@@ -44,6 +44,9 @@ func (l *UnderscorePermissibleInDNSNameIfValidWhenReplaced) CheckApplies(c *x509
 func (l *UnderscorePermissibleInDNSNameIfValidWhenReplaced) Execute(c *x509.Certificate) *lint.LintResult {
 	for _, dns := range c.DNSNames {
 		for _, label := range strings.Split(dns, ".") {
+			if !strings.Contains(label, "_") || label == "*" {
+				continue
+			}
 			replaced := strings.ReplaceAll(label, "_", "-")
 			if !util.IsLDHLabel(replaced) {
 				return &lint.LintResult{Status: lint.Error, Details: fmt.Sprintf("When all underscores (_) in '%s' are replaced with hypens (-) the result is '%s' which not a valid LDH label", label, replaced)}
