@@ -126,5 +126,6 @@ func IsLDHLabel(label string) bool {
 		len(label) <= 63 &&
 		!nonLDHCharacterRegex.MatchString(label) &&
 		!strings.HasPrefix(label, "-") &&
-		!strings.HasSuffix(label, "-")
+		!strings.HasSuffix(label, "-") &&
+		!(util.HasReservedLabelPrefix(label) && !util.HasXNLabelPrefix(label))
 }
