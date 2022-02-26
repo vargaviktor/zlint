@@ -30,7 +30,7 @@ func init() {
 		Citation:        "BR 7.1.4.2.1",
 		Source:          lint.CABFBaselineRequirements,
 		EffectiveDate:   util.CABFBRs_1_6_2_Date,
-		IneffectiveDate: util.BALLOT_SC_12_Ineffective,
+		IneffectiveDate: util.CABFBRs_1_6_2_UnderscorePermissibilitySunsetDate,
 		Lint:            func() lint.LintInterface { return &UnderscorePermissibleInDNSNameIfValidWhenReplaced{} },
 	})
 }
